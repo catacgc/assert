@@ -417,7 +417,7 @@ class Assertion
      */
     static public function isArray($value, $message = null, $propertyPath = null)
     {
-        if ( ! is_array($value)) {
+        if ( ! is_array($value) && ! $value instanceof ArrayAccess) {
             throw static::createException($message, static::INVALID_ARRAY, $propertyPath);
         }
     }
